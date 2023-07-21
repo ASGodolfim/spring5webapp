@@ -1,4 +1,4 @@
-package guru.springframework.spring5webapp;
+package guru.springframework.spring5webapp.currency;
 
 public class Dollar {
 
@@ -8,7 +8,7 @@ public class Dollar {
         this.amount = amount;
     }
 
-    Dollar times (int multiplier){
+    public Dollar times (int multiplier){
         return new Dollar (amount * multiplier);
     }
 
