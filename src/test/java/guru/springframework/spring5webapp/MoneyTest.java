@@ -73,7 +73,7 @@ public class MoneyTest {
 
     @Test
     public void testMixedAddition(){
-        Money fiveD = Money.dollar(5);
+        Expression fiveD = Money.dollar(5);
         Expression tenF = Money.franc(10);
         Bank bank = new Bank();
         bank.addRate("CHF","USD", 2);
@@ -81,6 +81,27 @@ public class MoneyTest {
         assertEquals(Money.dollar(10), result);
     }
 
+    @Test
+    public void testSumPlusMoney(){
+        Expression fiveD = Money.dollar(5);
+        Expression tenF = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF","USD", 2);
+        Expression sum = new Sum(fiveD, tenF).plus(fiveD);
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(15), result);
+    }
+
+    @Test
+    public void testSumtimes(){
+        Expression fiveD = Money.dollar(5);
+        Expression tenF = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF","USD", 2);
+        Expression sum = new Sum (fiveD, tenF).times(2);
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(20), result);
+    }
 }
 
 
