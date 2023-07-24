@@ -1,6 +1,6 @@
-package guru.springframework.spring5webapp.currency;
+package guru.springframework.spring5webapp;
 
-public class Money {
+public class Money implements Expression {
     protected int amount;
     public  String currency;
     public Money(int amount, String currency) {
@@ -31,4 +31,10 @@ public class Money {
     public Money times (int multiplier){
         return new Money (amount * multiplier, this.currency);
     }
+    public Expression plus(Money addend){
+        return new Money(amount + addend.amount, currency);
+    }
+
+
 }
+
