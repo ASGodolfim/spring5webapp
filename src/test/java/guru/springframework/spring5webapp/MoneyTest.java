@@ -1,7 +1,5 @@
 package guru.springframework.spring5webapp;
 
-import guru.springframework.spring5webapp.currency.Dollar;
-import guru.springframework.spring5webapp.currency.Franc;
 import guru.springframework.spring5webapp.currency.Money;
 import org.junit.Test;
 
